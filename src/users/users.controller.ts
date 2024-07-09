@@ -5,7 +5,7 @@ import { ReturnUserDto } from './dto/return-user.dto';
 
 @Controller('users')
 export class UsersController {
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService) { }
 
   @Post()
   async createAdminUser(
