@@ -1,6 +1,6 @@
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-// import { UserRepository } from './users.repository';
+import { Repository, FindOneOptions } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.entity';
 import { UserRole } from './user-roles.enum';
@@ -10,9 +10,14 @@ import {
   ConflictException,
   InternalServerErrorException,
 } from '@nestjs/common';
+import { CredentialsDto } from '../auth/dto/credentials.dto';
 
 @Injectable()
 export class UsersService {
+  constructor(
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
+  ) { }
   async createUser(
     createUserDto: CreateUserDto,
     role: UserRole,
@@ -42,7 +47,22 @@ export class UsersService {
       }
     }
   }
+  async findOne(id: number): Promise<User> {
+    return this.userRepository.findOne({ where: { id: id.toString() } });
+  }
 
+  async checkCredentials(credentialsDto: CredentialsDto): Promise<User> {
+    const { email, password } = credentialsDto;
+    const user = await this.userRepository.findOne({
+      where: { email, status: true },
+    });
+
+    if (user && (await user.checkPassword(password))) {
+      return user;
+    } else {
+      return null;
+    }
+  }
   private async hashPassword(password: string, salt: string): Promise<string> {
     return bcrypt.hash(password, salt);
   }
