@@ -151,4 +151,21 @@ export class UsersService {
 
     return { users, total };
   }
+  async updateByConfirmationToken(confirmationToken: string, updateData: Partial<User>): Promise<any> {
+    return this.userRepository.update({ confirmationToken }, updateData);
+  }
+  async findOneByEmail(email: string): Promise<User | undefined> {
+    return this.userRepository.findOne({ where: { email } });
+  }
+  async changePassword(id: string, password: string) {
+    const user = await this.userRepository.findOne({ where: { id } });
+    user.salt = await bcrypt.genSalt();
+    user.password = await this.hashPassword(password, user.salt);
+    user.recoverToken = null;
+    await user.save();
+  }
+  async findOneByConfirmationToken(confirmationToken: string): Promise<User> {
+    return this.userRepository.findOne({ where: { confirmationToken } });
+  }
 }
+
