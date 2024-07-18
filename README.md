@@ -2,72 +2,76 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# API de serviço de usuários
+Esta é uma API NestJS que fornece um serviço de usuários, permitindo criar, ler, atualizar e excluir usuários.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🎨 Tecnologias utilizadas
+- NestJS
+- TypeORM
+- bcrypt
+- crypto
 
-## Description
+## Funcionalidades
+- Crie um novo usuário com um endereço de e-mail exclusivo
+- Recuperar uma lista de todos os usuários
+- Recuperar um único usuário por ID
+- Atualizar as informações de um usuário
+- Excluir um usuário
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+##Instalação
+Para instalar este projeto, execute o seguinte comando:
 
 ```bash
-$ npm install
+npm install
 ```
+## API Endpoints
 
-## Running the app
+### Criar usuário
+- POST/usuários
+Corpo da solicitação: CreateUserDto (e-mail, nome, senha, senhaConfirmação)
+Resposta: Objeto de usuário com dados de usuário criados
+### Obtenha todos os usuários
+- GET /usuários
+Resposta: Matriz de objetos User
 
-```bash
-# development
-$ npm run start
+### Obtenha usuário por ID
+- GET /usuários/:id
+Parâmetro de caminho: id (ID do usuário)
+Resposta: Objeto de usuário com dados do usuário
 
-# watch mode
-$ npm run start:dev
+### Atualizar usuário
+- PATCH /usuários/:id
+Parâmetro de caminho: id (ID do usuário)
+Corpo da solicitação: UpdateUserDto (e-mail, nome, senha, senhaConfirmação)
+Resposta: Objeto de usuário com dados de usuário atualizados
 
-# production mode
-$ npm run start:prod
-```
+### Deletar usuário
+- DELETE /usuários/:id
+Parâmetro de caminho: id (ID do usuário)
+Resposta: 200 OK sem conteúdo
 
-## Test
+### Manipulação de erros
+Esta API usa o mecanismo integrado de tratamento de erros do NestJS. Se ocorrer um erro, a API retornará uma resposta de erro com um código de status e uma mensagem de erro.
 
-```bash
-# unit tests
-$ npm run test
+## 👥 Autor
 
-# e2e tests
-$ npm run test:e2e
+<table>
+ <tr>
+ <td alinhar="centro">
+ <a href="https://github.com/Sub-Dev" target="_blank">
+ <img src="https://avatars.githubusercontent.com/u/68450692?v=4" alt="Anthony-Marin" height="30" width="30"/>
+ </a>
+ </td>
+ <td>
+ <strong>Anthony Marin</strong> (Subdesenvolvedor) - <a href="https://github.com/Sub-Dev">Perfil no GitHub</a>
+ </td>
+ </tr>
+</table>
 
-# test coverage
-$ npm run test:cov
-```
+## Licença
+Este projeto está licenciado sob a Licença MIT.
 
-## Support
+## 💬 Obrigado
+Obrigado ao [**Iago Maia**](https://github.com/iagomaia) pelo otimo tutorial desenvolvido que esta disponivel no [**Link Tutorial**](https://medium.com/@iago.maiasilva/construindo-uma-api-com-nestjs-postgresql-e-docker-parte-1-criando-nosso-primeiro-endpoint-248d4b8ecc9c)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
