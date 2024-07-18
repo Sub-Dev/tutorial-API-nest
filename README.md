@@ -27,32 +27,32 @@ npm install
 ## API Endpoints
 
 ### Criar usuário
-- POST/usuários
+- POST api/users
 Corpo da solicitação:
 - CreateUserDto (e-mail, nome, password, passwordConfirmation)
 Resposta:
 - Objeto de usuário com dados de usuário criados
 ### Obtenha todos os usuários
-- GET /usuários
+- GET api/users
 Resposta:
 - Matriz de objetos User
 
 ### Obtenha usuário por ID
-- GET /usuários/:id
+- GET api/users/:id
 - Parâmetro de caminho: id (ID do usuário)
 Resposta:
 - Objeto de usuário com dados do usuário
 
 ### Atualizar usuário
-- PATCH /usuários/:id
+- PATCH api/users/:id
 Parâmetro de caminho: id (ID do usuário)
 Corpo da solicitação:
-- UpdateUserDto (e-mail, nome, senha, senhaConfirmação)
+- UpdateUserDto (e-mail, name, password,  passwordConfirmation)
 Resposta:
 - Objeto de usuário com dados de usuário atualizados
 
 ### Deletar usuário
-- DELETE /usuários/:id
+- DELETE api/users/:id
 Parâmetro de caminho: id (ID do usuário)
 Resposta: 200 OK sem conteúdo
 
