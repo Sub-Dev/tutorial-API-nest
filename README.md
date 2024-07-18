@@ -72,6 +72,6 @@ Esta API usa o mecanismo integrado de tratamento de erros do NestJS. Se ocorrer 
 Este projeto está licenciado sob a Licença MIT.
 
 ## 💬 Obrigado
-Obrigado ao [**Iago Maia**](https://github.com/iagomaia) pelo otimo tutorial desenvolvido que esta disponivel no [**Link Tutorial**](https://medium.com/@iago.maiasilva/construindo-uma-api-com-nestjs-postgresql-e-docker-parte-1-criando-nosso-primeiro-endpoint-248d4b8ecc9c)
+Obrigado ao [**Iago Maia**](https://github.com/iagomaia) pelo otimo tutorial desenvolvido que esta disponivel aqui [**Link Tutorial**](https://medium.com/@iago.maiasilva/construindo-uma-api-com-nestjs-postgresql-e-docker-parte-1-criando-nosso-primeiro-endpoint-248d4b8ecc9c)
 
 
