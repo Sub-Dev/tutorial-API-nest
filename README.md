@@ -28,22 +28,28 @@ npm install
 
 ### Criar usuário
 - POST/usuários
-Corpo da solicitação: CreateUserDto (e-mail, nome, senha, senhaConfirmação)
-Resposta: Objeto de usuário com dados de usuário criados
+Corpo da solicitação:
+- CreateUserDto (e-mail, nome, password, passwordConfirmation)
+Resposta:
+- Objeto de usuário com dados de usuário criados
 ### Obtenha todos os usuários
 - GET /usuários
-Resposta: Matriz de objetos User
+Resposta:
+- Matriz de objetos User
 
 ### Obtenha usuário por ID
 - GET /usuários/:id
-Parâmetro de caminho: id (ID do usuário)
-Resposta: Objeto de usuário com dados do usuário
+- Parâmetro de caminho: id (ID do usuário)
+Resposta:
+- Objeto de usuário com dados do usuário
 
 ### Atualizar usuário
 - PATCH /usuários/:id
 Parâmetro de caminho: id (ID do usuário)
-Corpo da solicitação: UpdateUserDto (e-mail, nome, senha, senhaConfirmação)
-Resposta: Objeto de usuário com dados de usuário atualizados
+Corpo da solicitação:
+- UpdateUserDto (e-mail, nome, senha, senhaConfirmação)
+Resposta:
+- Objeto de usuário com dados de usuário atualizados
 
 ### Deletar usuário
 - DELETE /usuários/:id
